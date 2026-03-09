@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #050709;
+    color: #c8d8e8;
+    font-family: 'Noto Sans SC', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0d12;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1a2030;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00d4ff44;
+  }
+}
+
+@layer components {
+  .grid-bg {
+    background-image: 
+      linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .panel-card {
+    background: #0a0d12;
+    border: 1px solid #1a2030;
+    border-radius: 4px;
+    transition: border-color 0.2s;
+  }
+
+  .panel-card:hover {
+    border-color: #00d4ff33;
+  }
+
+  .accent-btn {
+    background: linear-gradient(135deg, #00d4ff22, #00d4ff11);
+    border: 1px solid #00d4ff44;
+    color: #00d4ff;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    padding: 8px 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .accent-btn:hover {
+    background: linear-gradient(135deg, #00d4ff33, #00d4ff22);
+    border-color: #00d4ff88;
+    box-shadow: 0 0 20px #00d4ff22;
+  }
+
+  .accent-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    padding: 2px 8px;
+    border-radius: 2px;
+    border: 1px solid;
+    letter-spacing: 0.05em;
+  }
+
+  .score-bar {
+    height: 3px;
+    background: #1a2030;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .score-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00d4ff, #00ff88);
+    border-radius: 2px;
+    transition: width 1s ease-out;
+  }
+
+  .upload-zone {
+    border: 1px dashed #1a2030;
+    border-radius: 4px;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .upload-zone:hover, .upload-zone.dragging {
+    border-color: #00d4ff44;
+    background: #00d4ff06;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-size: 0.82rem;
+    color: #6a7a8a;
+    border: 1px solid transparent;
+  }
+
+  .nav-item:hover {
+    color: #c8d8e8;
+    background: #0f1318;
+  }
+
+  .nav-item.active {
+    color: #00d4ff;
+    background: #00d4ff0a;
+    border-color: #00d4ff22;
+  }
+
+  .input-field {
+    background: #0f1318;
+    border: 1px solid #1a2030;
+    color: #c8d8e8;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 0.875rem;
+    padding: 10px 14px;
+    border-radius: 2px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .input-field:focus {
+    border-color: #00d4ff44;
+  }
+
+  .input-field::placeholder {
+    color: #3a4a5c;
+  }
+
+  .label-製造 { color: #ff8844; border-color: #ff884433; background: #ff884408; }
+  .label-研发 { color: #00d4ff; border-color: #00d4ff33; background: #00d4ff08; }
+  .label-行政 { color: #aa88ff; border-color: #aa88ff33; background: #aa88ff08; }
+  .label-后勤 { color: #ffaa00; border-color: #ffaa0033; background: #ffaa0008; }
+  .label-销售 { color: #00ff88; border-color: #00ff8833; background: #00ff8808; }
+  .label-其他 { color: #6a7a8a; border-color: #6a7a8a33; background: #6a7a8a08; }
+
+  .loading-dots::after {
+    content: '';
+    animation: dots 1.5s infinite;
+  }
+
+  @keyframes dots {
+    0%, 20% { content: ''; }
+    40% { content: '.'; }
+    60% { content: '..'; }
+    80%, 100% { content: '...'; }
+  }
+}
