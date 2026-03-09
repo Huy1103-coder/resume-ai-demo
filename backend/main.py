@@ -5,7 +5,8 @@ from pydantic import BaseModel
 from typing import List, Optional
 import os
 from dotenv import load_dotenv
-load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
+load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'), override=False)
+load_dotenv(override=False)
 
 from zhipuai import ZhipuAI
 import base64
@@ -23,7 +24,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-client = ZhipuAI(api_key=os.environ.get("ZHIPU_API_KEY", ""))
+client = ZhipuAI(api_key=os.environ.get("ZHIPU_API_KEY") or "missing")
 MODEL_NAME = "glm-4v-flash"
 TEXT_MODEL = "glm-4-flash"
 
